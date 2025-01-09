@@ -5,13 +5,87 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vicentra - MESIN OUTDOOR</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <script defer type="module" src="./assets/js/app.js"></script>
 </head>
 
 <body>
-  <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
+  <div id="app">
+    <!-- HEADER -->
+    <header class="flex justify-center border-b-2 py-4">
+      <img src="./assets/images/logo-vicentra-black.webp" alt="logo-vicentra-black" class="h-[2.375rem]">
+    </header>
+    <!-- HEADER -->
+
+    <!-- HERO SECTION -->
+    <section class="grid lg:grid-cols-2 items-center mx-5 px-5 py-[3.125rem] bg-[#f7f7f7]">
+      <div>
+        <h1 class="text-4xl font-semibold">
+          MESIN OUTDOOR TERBAIK, PERIOD
+        </h1>
+        <p class="mt-5">
+          Selamat datang di website kami! Temukan mesin digital printing outdoor berkualitas dengan hasil tahan lama dan
+          harga terbaik di sini.
+        </p>
+        <a href="https://vicentra.co.id/product/mesin/digital-printing/outdoor" target="_blank" class=" inline-block capitalize mt-5 px-10 py-3 hover:bg-[#1B0000] hover:text-white border border-[#1B0000]
+          transition duration-300">lihat
+          semua produk</a>
+      </div>
+      <div class="order-first lg:order-none">
+        <img src="./assets/images/mesin/mesin-neu-jet.webp" alt="mesin-neu-jet">
+      </div>
+    </section>
+    <!-- HERO SECTION -->
+
+    <!-- PRODUCT SECTION -->
+    <section>
+      <div class="w-[80vw] mx-auto">
+        <div v-for="product in products">
+          <div class="flex justify-center mt-10">
+            <div class="w-[80vw] h-[1px] bg-[#1B0000]"></div>
+          </div>
+          <div class="grid lg:grid-cols-2 gap-5 items-center my-[5rem]">
+            <div>
+              <h2>{{product.name}}</h2>
+              <h1 class="text-3xl font-semibold my-5">{{product.tagline}}</h1>
+              <div v-html="product.short_description"></div>
+              <a v-bind:href="product.link_product" target="_blank"
+                class="inline-block capitalize font-medium text-white bg-black rounded-md px-10 py-3 mt-5">lebih
+                lengkap</a>
+            </div>
+            <div class="order-first lg:order-none">
+              <img v-bind:src="product.photo" v-bind:alt="product.name">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- PRODUCT SECTION -->
+
+    <!-- CTA SECTION -->
+    <section class="mb-[2.5rem]">
+      <h1 class="capitalize text-3xl font-semibold text-center">get in touch</h1>
+      <div class="relative flex justify-center mt-5">
+        <div class="w-[80vw] h-[2px] bg-[#e1e1e1]"></div>
+        <div class="w-[10vw] h-[2px] bg-[#1B0000] absolute"></div>
+      </div>
+      <a href="https://api.whatsapp.com/send?phone=6281232548368&text=Hallo%20Vicentra,%20Saya%20Ingin%20Memesan%20Mesin%20Outdoor."
+        target="_blank" class="w-fit mx-4 lg:mx-auto flex items-center gap-4 bg-[#2db742] px-5 py-3 rounded-full mt-10">
+        <i class="text-4xl text-white fa-brands fa-whatsapp"></i>
+        <div>
+          <div class="flex gap-2 items-center">
+            <h6 class="text-sm text-white/70">Layanan 24 Jam</h6>
+            <small class="text-xs text-white bg-white/25 px-1 rounded">Online</small>
+          </div>
+          <h5 class="text-white">Ada pertanyaan atau ingin memesan produk ini?</h5>
+        </div>
+      </a>
+    </section>
+    <!-- CTA SECTION -->
+  </div>
 </body>
 
 </html>
