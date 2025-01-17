@@ -48,34 +48,52 @@
   <!-- End Google Tag Manager (noscript) -->
   <div id="app">
     <!-- HEADER -->
-    <header class="flex justify-center border-b-2 py-4">
-      <img src="./assets/images/logo-vicentra-black.webp" alt="logo-vicentra-black" class="h-[2.375rem]">
+    <header class="border-b-2 py-4">
+      <div class="lg:w-[80vw] mx-5 lg:mx-auto flex justify-between items-center relative">
+        <img src="./assets/images/logo-vicentra-black.webp" alt="logo-vicentra-black" class="h-[2.375rem]">
+        <div class="lg:hidden">
+          <i :class="[isMenuShow ? 'fa-solid fa-xmark text-2xl' : 'fa-solid fa-bars text-2xl']" class=""
+            @click="toggleMenu"></i>
+        </div>
+        <ul :class="[isMenuShow ? 'visible' : 'invisible']"
+          class="lg:visible flex flex-col lg:flex-row lg:items-center gap-2 lg:gap-5 absolute lg:static top-[3.125rem] left-0 right-0 bg-white lg:bg-transparent shadow lg:shadow-none p-2 lg:p-0 rounded lg:rounded-none">
+          <li><a href="https://vicentra.co.id" class="beranda hover:underline">Beranda</a></li>
+          <li><a href="https://vicentra.co.id/product/mesin/digital-printing/outdoor"
+              class="semua_produk hover:underline">Produk</a>
+          </li>
+          <li><a href="https://vicentra.co.id/terms-and-conditions"
+              class="layanan_dan_perbaikan hover:underline">Layanan dan Perbaikan</a>
+          </li>
+          <li><a href="https://vicentra.co.id/about-us" class="tentang_kamihover:underline">Tentang Kami</a></li>
+        </ul>
+      </div>
     </header>
     <!-- HEADER -->
 
     <!-- HERO SECTION -->
-    <section class="grid lg:grid-cols-2 items-center mx-5 px-5 py-[3.125rem] bg-[#f7f7f7]">
+    <section
+      class="lg:w-[80vw] mx-5 lg:mx-auto grid lg:grid-cols-2 gap-5 items-center mx-5 px-5 py-[3.125rem] bg-[#f7f7f7]">
       <div>
-        <h1 class="text-4xl font-semibold">
+        <h1 class="text-4xl lg:text-3xl font-semibold text-center lg:text-left">
           MESIN OUTDOOR TERBAIK, PERIOD
         </h1>
         <p class="mt-5">
           Selamat datang di website kami! Temukan mesin digital printing outdoor berkualitas dengan hasil tahan lama dan
           harga terbaik di sini.
         </p>
-        <a href="https://vicentra.co.id/product/mesin/digital-printing/outdoor" target="_blank" class=" inline-block capitalize mt-5 px-10 py-3 hover:bg-[#1B0000] hover:text-white border border-[#1B0000]
+        <a href="https://vicentra.co.id/product/mesin/digital-printing/outdoor" target="_blank" class="semua_produk inline-block capitalize mt-5 px-10 py-3 hover:bg-[#1B0000] hover:text-white border border-[#1B0000]
           transition duration-300">lihat
           semua produk</a>
       </div>
       <div class="order-first lg:order-none">
-        <img src="./assets/images/mesin/mesin-neu-jet.webp" alt="mesin-neu-jet">
+        <img src="./assets/images/mesin/neu-jet-mpoc4k.webp" alt="neu-jet-mpoc4k">
       </div>
     </section>
     <!-- HERO SECTION -->
 
     <!-- PRODUCT SECTION -->
     <section>
-      <div class="w-[80vw] mx-auto">
+      <div class="lg:w-[80vw] mx-5 lg:mx-auto">
         <div v-for="product in products">
           <div class="flex justify-center mt-10">
             <div class="w-[80vw] h-[1px] bg-[#1B0000]"></div>
@@ -86,11 +104,13 @@
               <h1 class="text-3xl font-semibold my-5">{{product.tagline}}</h1>
               <div v-html="product.short_description"></div>
               <a v-bind:href="product.link_product" target="_blank"
-                class="inline-block capitalize font-medium text-white bg-black rounded-md px-10 py-3 mt-5">lebih
+                class="detail_produk inline-block capitalize font-medium text-white bg-black rounded-md px-10 py-3 mt-5">lebih
                 lengkap</a>
             </div>
             <div class="order-first lg:order-none">
-              <img v-bind:src="product.photo" v-bind:alt="product.name">
+              <a v-bind:href="product.link_product" target="_blank">
+                <img v-bind:src="product.photo" v-bind:alt="product.name">
+              </a>
             </div>
           </div>
         </div>
@@ -106,7 +126,8 @@
         <div class="w-[10vw] h-[2px] bg-[#1B0000] absolute"></div>
       </div>
       <a href="https://api.whatsapp.com/send?phone=6281232548368&text=Hallo%20Vicentra,%20Saya%20Ingin%20Memesan%20Mesin%20Outdoor."
-        target="_blank" class="w-fit mx-4 lg:mx-auto flex items-center gap-4 bg-[#2db742] px-5 py-3 rounded-full mt-10">
+        target="_blank"
+        class="link_cta w-fit mx-4 lg:mx-auto flex items-center gap-4 bg-[#2db742] px-5 py-3 rounded-full mt-10">
         <i class="text-4xl text-white fa-brands fa-whatsapp"></i>
         <div>
           <div class="flex gap-2 items-center">
