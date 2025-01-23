@@ -141,14 +141,14 @@
         <div class="w-[80vw] h-[2px] bg-[#e1e1e1]"></div>
         <div class="w-[10vw] h-[2px] bg-[#1B0000] absolute"></div>
       </div>
-      <div class="lg:w-[80vw] mx-5 lg:mx-auto grid lg:grid-cols-12 gap-4 mt-10">
-        <a v-for="(sales, index) in salesPeople" :key="index" :data-sales-name="sales.slug"
-          :href="'https://api.whatsapp.com/send?phone=' + sales.phone + '&text=Hallo%20Vicentra,%20Saya%20Ingin%20Memesan%20Mesin%20Outdoor.'"
+      <div class="lg:w-[40vw] mx-5 lg:mx-auto flex justify-center mt-10">
+        <a v-for="(sales, index) in salesPeople" :key="index"
+          :href="'https://api.whatsapp.com/send?phone=' + sales.phone + '&text=Hallo%20Vicentra,%20Saya%20Ingin%20Memesan%20Mesin%20UV.'"
           target="_blank" :class="[
-            (sales.id === 1) ? 'bg-[#006db8]' : 'bg-green-600',
-            'sales_cta_link',
-            'lg:col-span-6 h-[5rem] flex items-center gap-[1.5rem] rounded-full relative py-2 pl-[7rem]'
-          ]">
+        (sales.id === 1) ? 'bg-[#006db8]' : 'bg-green-600',
+        'sales_' + sales.slug + '_cta_link',
+        'w-full h-[5rem] flex items-center gap-[1.5rem] rounded-full relative py-2 pl-[7rem]'
+      ]">
           <div class="absolute left-0">
             <div class="w-[5.5rem] h-[5.5rem] rounded-full border-[0.188rem] border-white relative">
               <img :src="sales.photo" :alt="sales.name" class="rounded-full" />
@@ -176,6 +176,12 @@
       </div>
     </section>
     <!-- CTA SECTION -->
+
+    <!-- FOOTER -->
+    <footer class="bg-black py-5 flex justify-center items-center">
+      <p class="text-sm text-white">Vicentra © 2025 Created By Vicentra Dev.</p>
+    </footer>
+    <!-- FOOTER -->
   </div>
 
   <script defer type="module" src="./assets/js/app.js"></script>
