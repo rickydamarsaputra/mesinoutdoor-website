@@ -207,6 +207,7 @@ require_once('const.php');
     <!-- FOOTER -->
   </div>
 
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script defer type="module" src="./assets/js/app.js"></script>
 </body>
 
